@@ -96,11 +96,11 @@ module.exports = {
     },
     {
       key: "contains",
-      translation: "contains {0}",
+      translation: "Contains {0}",
     },
     {
       key: "notContains",
-      translation: "not contains {0}",
+      translation: "Not contains {0}",
     },
   ],
 };
