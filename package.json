@@ -1,0 +1,37 @@
+{
+  "name": "kola",
+  "version": "0.0.1",
+  "description": "A tool to translate suma error codes to natural language.",
+  "main": "./src/kola.js",
+  "scripts": {
+    "test": "mocha --timeout 999999 --colors --recursive ./test"
+  },
+  "directories": {
+    "lib": "src",
+    "test": "test",
+    "example": "examples"
+  },
+  "engines": {
+    "node": ">= 12.3.0"
+  },
+  "keywords": [
+    "entity",
+    "value object",
+    "validation",
+    "error code only",
+    "suma",
+    "gotu",
+    "buchu"
+  ],
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5"
+  },
+  "author": "Matheus Vicente",
+  "license": "MIT"
+}
