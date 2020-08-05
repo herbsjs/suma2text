@@ -1,5 +1,5 @@
 module.exports = function (language = "en-US", languageJSON) {
-  const languagePack = require("../i18n/languagePackage")(language);
+  const languagePack = require("./languagePackage")(language);
 
   if (!languagePack && !languageJSON)
     throw new Error(`${language} is not implemented`);

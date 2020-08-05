@@ -182,6 +182,9 @@ describe("kola", () => {
         }),
         roles: field(Array, { validation: { presence: true } }),
         active: field(Boolean, { validation: { presence: true } }),
+        car: field(String, {
+          validation: { contains: { allowed: "Four wheels and a engine" } },
+        }),
       });
 
       const testUser = new User();
@@ -189,6 +192,7 @@ describe("kola", () => {
       testUser.roles = new User();
       testUser.birthDay = new Date("2001-02-02");
       testUser.phone = "5656";
+      testUser.car = "Two wheels and two pedals";
 
       testUser.validate();
       const kola = require("../src/kola")();
@@ -197,6 +201,11 @@ describe("kola", () => {
 
       assert.deepStrictEqual(testUserErrors, {
         name: ["Cant be empty"],
+        email: ["Invalid email"],
+        phone: ["Is too short"],
+        birthDay: ["Too late"],
+        roles: ["Wrong type, the correct type is Array"],
+        car: ["Not contains Four wheels and a engine"],
       });
     });
   });
