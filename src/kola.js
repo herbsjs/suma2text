@@ -1,14 +1,11 @@
 module.exports = function (language = "en-US", languageJSON) {
-  const languages = {
-    "en-US": require("../i18n/en-US"),
-    "pt-BR": require("../i18n/pt-BR"),
-  };
+  const languagePack = require("../i18n/languagePackage")(language);
 
-  if (!languages[language] && !languageJSON)
+  if (!languagePack && !languageJSON)
     throw new Error(`${language} is not implemented`);
 
-  const languagePackage = languages[language]
-    ? JSON.parse(JSON.stringify(languages[language]))
+  const languagePackage = languagePack
+    ? JSON.parse(JSON.stringify(languagePack))
     : { types: [], sumaCodes: [] };
 
   if (languageJSON) {
@@ -66,9 +63,9 @@ module.exports = function (language = "en-US", languageJSON) {
     return errorCode.translation;
   }
 
-  function translateEntityField(entityErrors) {
+  function translateErrorsField(entityErrors) {
     if (!Array.isArray(entityErrors)) {
-      return translateEntity(entityErrors);
+      return translateErrors(entityErrors);
     }
 
     return entityErrors.map((error) => {
@@ -76,15 +73,15 @@ module.exports = function (language = "en-US", languageJSON) {
     });
   }
 
-  function translateEntity(error) {
+  function translateErrors(error) {
     const errorEntries = Object.entries(error);
     const entity = {};
     errorEntries.forEach(([key, value]) => {
-      entity[key] = translateEntityField(value);
+      entity[key] = translateErrorsField(value);
     });
 
     return entity;
   }
 
-  return { translateEntity, translate: translateErrorObject };
+  return { translateErrors, translate: translateErrorObject };
 };

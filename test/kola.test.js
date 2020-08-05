@@ -14,7 +14,7 @@ describe("kola", () => {
         const translator = require("../src/kola")();
 
         assert.throws(() => {
-          translator.translateEntity(errorArray);
+          translator.translateErrors(errorArray);
         });
       });
 
@@ -25,7 +25,7 @@ describe("kola", () => {
         const translator = require("../src/kola")();
 
         assert.throws(() => {
-          translator.translateEntity(errorArray);
+          translator.translateErrors(errorArray);
         });
       });
     });
@@ -49,7 +49,7 @@ describe("kola", () => {
         };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translateEntity(errorArray);
+        const traductions = translator.translateErrors(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Cant be null"],
@@ -70,7 +70,7 @@ describe("kola", () => {
         };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translateEntity(errorArray);
+        const traductions = translator.translateErrors(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value2: ["Cant be empty"],
@@ -92,7 +92,7 @@ describe("kola", () => {
         };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translateEntity(errorArray);
+        const traductions = translator.translateErrors(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Cant be null", "Cant be empty"],
@@ -111,7 +111,7 @@ describe("kola", () => {
         };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translateEntity(errorArray);
+        const traductions = translator.translateErrors(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Not less than 0"],
@@ -134,7 +134,7 @@ describe("kola", () => {
         };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translateEntity(errorArray);
+        const traductions = translator.translateErrors(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Not less than 0"],
@@ -151,6 +151,52 @@ describe("kola", () => {
             value10: ["Wrong type, the correct type is value2"],
           },
         });
+      });
+    });
+  });
+  describe("Gotu .error test", () => {
+    it("should translate an entire .error object after validation", () => {
+      const { field, entity } = require("gotu");
+      const User = entity("User", {
+        name: field(String, { validation: { presence: true } }),
+        email: field(String, {
+          validation: {
+            email: true,
+          },
+        }),
+        phone: field(String, {
+          validation: {
+            length: {
+              minimum: 11,
+            },
+          },
+        }),
+        birthDay: field(Date, {
+          validation: {
+            datetime: {
+              before: new Date("2001-01-01"),
+              after: new Date("2001-01-03"),
+              isAt: new Date("2001-02-02"),
+            },
+          },
+        }),
+        roles: field(Array, { validation: { presence: true } }),
+        active: field(Boolean, { validation: { presence: true } }),
+      });
+
+      const testUser = new User();
+      testUser.email = "test123";
+      testUser.roles = new User();
+      testUser.birthDay = new Date("2001-02-02");
+      testUser.phone = "5656";
+
+      testUser.validate();
+      const kola = require("../src/kola")();
+
+      const testUserErrors = kola.translateErrors(testUser.errors);
+
+      assert.deepStrictEqual(testUserErrors, {
+        name: ["Cant be empty"],
       });
     });
   });

@@ -19,7 +19,7 @@ describe("kola - I18N en-US", () => {
     };
 
     const translator = require("../../src/kola")("en-US");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Cant be null"],
@@ -40,7 +40,7 @@ describe("kola - I18N en-US", () => {
     };
 
     const translator = require("../../src/kola")("en-US");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value2: ["Cant be empty"],
@@ -62,7 +62,7 @@ describe("kola - I18N en-US", () => {
     };
 
     const translator = require("../../src/kola")("en-US");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Cant be null", "Cant be empty"],
@@ -81,7 +81,7 @@ describe("kola - I18N en-US", () => {
     };
 
     const translator = require("../../src/kola")("en-US");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],
@@ -104,7 +104,7 @@ describe("kola - I18N en-US", () => {
     };
 
     const translator = require("../../src/kola")("en-US");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],

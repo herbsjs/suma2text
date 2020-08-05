@@ -30,7 +30,7 @@ describe("Customizable language", () => {
         { key: "isTooLong", translation: "testing4" },
       ],
     });
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["testing"],
@@ -65,7 +65,7 @@ describe("Customizable language", () => {
         },
       ],
     });
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value2: ["Wont should be empty"],
@@ -87,7 +87,7 @@ describe("Customizable language", () => {
     };
 
     const translator = require("../../src/kola")();
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Cant be null", "Cant be empty"],
@@ -106,7 +106,7 @@ describe("Customizable language", () => {
     };
 
     const translator = require("../../src/kola")();
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],
@@ -129,7 +129,7 @@ describe("Customizable language", () => {
     };
 
     const translator = require("../../src/kola")();
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],

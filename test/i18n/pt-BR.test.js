@@ -23,7 +23,7 @@ describe("kola - I18N pt-BR", () => {
     };
 
     const translator = require("../../src/kola")("pt-BR");
-    const traductions = translator.translateEntity(errorArray);
+    const traductions = translator.translateErrors(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Não pode ser menor do que 0"],

@@ -39,7 +39,7 @@ user.errors // { name: [ {wrongType: 'String'} ], plan: { monthlyCost: [ {wrongT
 
 const translator = require('kola')('pt-BR')
 
-const translator.translateEntity(user.errors)
+const translator.translateErrors(user.errors)
 /*
     {
         name: ["Wrong type"]
