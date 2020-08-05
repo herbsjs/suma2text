@@ -91,28 +91,16 @@ module.exports = {
       translation: "Invalid URL",
     },
     {
-      key: "notDefined",
-      translation: "Not defined",
-    },
-    {
-      key: "internalServerError",
-      translation: "Internal server error",
-    },
-    {
-      key: "integrationError",
-      translation: "Integration error",
-    },
-    {
-      key: "invalidType",
-      translation: "Invalid type",
-    },
-    {
-      key: "noRelation",
-      translation: "No ralation",
-    },
-    {
       key: "invalidEmail",
       translation: "Invalid email",
+    },
+    {
+      key: "contains",
+      translation: "contains {0}",
+    },
+    {
+      key: "notContains",
+      translation: "not contains {0}",
     },
   ],
 };

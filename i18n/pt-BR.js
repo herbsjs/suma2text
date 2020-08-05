@@ -80,7 +80,7 @@ module.exports = {
     },
     {
       key: "notADate",
-      translation: "Deveria ser uma data",
+      translation: "Não é uma data",
     },
     {
       key: "invalidFormat",
@@ -91,32 +91,16 @@ module.exports = {
       translation: "Foi definido com uma URL inválida",
     },
     {
-      key: "outSLA",
-      translation: "Está fora do horário permitido pelo SLA",
-    },
-    {
-      key: "notDefined",
-      translation: "Não foi definido",
-    },
-    {
-      key: "internalServerError",
-      translation: "Erro interno nos servidores",
-    },
-    {
-      key: "integrationError",
-      translation: "Passou por um erro nas integrações",
-    },
-    {
-      key: "invalidType",
-      translation: "Foi definido com um tipo inválido",
-    },
-    {
-      key: "noRelation",
-      translation: "Não possui relação",
-    },
-    {
       key: "invalidEmail",
       translation: "Foi definido um e-mail inválido",
+    },
+    {
+      key: "contains",
+      translation: "contém {0}",
+    },
+    {
+      key: "notContains",
+      translation: "não contém {0}",
     },
   ],
 };
