@@ -44,7 +44,7 @@ module.exports = function (language = "en-US", languageJSON) {
       (error) => error.key === key
     );
 
-    if (!errorCode.translation)
+    if (!errorCode)
       throw new Error(`Not implemented error code: ${key}`);
 
     if (typeof errorObject[key] === "number")
