@@ -29,23 +29,22 @@ module.exports = function (language = "en-US", languageJSON) {
     }
   }
 
-  if (!String.prototype.format) {
-    String.prototype.format = function () {
-      var args = arguments;
-      return this.replace(/{(\d+)}/g, function (match, number) {
-        return typeof args[number] != "undefined" ? args[number] : match;
-      });
-    };
-  }
-
-  function translateErrorObject(errorObject) {
+  function toText(errorObject) {
     const key = Object.getOwnPropertyNames(errorObject)[0];
     const errorCode = languagePackage.sumaCodes.find(
       (error) => error.key === key
     );
 
-    if (!errorCode)
-      throw new Error(`Not implemented error code: ${key}`);
+    if (!errorCode) throw new Error(`Not implemented error code: ${key}`);
+
+    if (!String.prototype.format) {
+      String.prototype.format = function () {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, function (match, number) {
+          return typeof args[number] != "undefined" ? args[number] : match;
+        });
+      };
+    }
 
     if (typeof errorObject[key] === "number")
       return errorCode.translation.format(errorObject[key]);
@@ -63,25 +62,18 @@ module.exports = function (language = "en-US", languageJSON) {
     return errorCode.translation;
   }
 
-  function translateErrorsField(entityErrors) {
-    if (!Array.isArray(entityErrors)) {
-      return translateErrors(entityErrors);
-    }
-
-    return entityErrors.map((error) => {
-      return translateErrorObject(error);
-    });
-  }
-
-  function translateErrors(error) {
-    const errorEntries = Object.entries(error);
+  function errorsToText(errors) {
     const entity = {};
-    errorEntries.forEach(([key, value]) => {
-      entity[key] = translateErrorsField(value);
+    Object.entries(errors).forEach(([key, value]) => {
+      if (Array.isArray(value))
+        entity[key] = value.map((error) => {
+          return toText(error);
+        });
+      else entity[key] = errorsToText(value);
     });
 
     return entity;
   }
 
-  return { translateErrors, translate: translateErrorObject };
+  return { errorsToText, toText };
 };

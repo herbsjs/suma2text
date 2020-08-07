@@ -11,10 +11,10 @@ describe("kola", () => {
         const errorArray = {
           value1: [{ callMeError: true }],
         };
-        const translator = require("../src/kola")();
+        const { errorsToText } = require("../src/kola")();
 
         assert.throws(() => {
-          translator.translateErrors(errorArray);
+          errorsToText(errorArray);
         });
       });
 
@@ -22,10 +22,10 @@ describe("kola", () => {
         const errorArray = {
           value1: [{ callMeError: true }],
         };
-        const translator = require("../src/kola")();
+        const { errorsToText } = require("../src/kola")();
 
         assert.throws(() => {
-          translator.translateErrors(errorArray);
+          errorsToText(errorArray);
         });
       });
     });
@@ -35,7 +35,7 @@ describe("kola", () => {
         const error = { cantBeNull: true };
 
         const translator = require("../src/kola")();
-        const traductions = translator.translate(error);
+        const traductions = translator.toText(error);
 
         assert.deepStrictEqual(traductions, "Cant be null");
       });
@@ -48,8 +48,8 @@ describe("kola", () => {
           value5: [{ isTooLong: true }],
         };
 
-        const translator = require("../src/kola")();
-        const traductions = translator.translateErrors(errorArray);
+        const { errorsToText } = require("../src/kola")();
+        const traductions = errorsToText(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Cant be null"],
@@ -69,8 +69,8 @@ describe("kola", () => {
           value7: [{ wrongType: "value2" }],
         };
 
-        const translator = require("../src/kola")();
-        const traductions = translator.translateErrors(errorArray);
+        const { errorsToText } = require("../src/kola")();
+        const traductions = errorsToText(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value2: ["Cant be empty"],
@@ -91,8 +91,8 @@ describe("kola", () => {
           value5: [{ isTooLong: true }, { isTooShort: true }],
         };
 
-        const translator = require("../src/kola")();
-        const traductions = translator.translateErrors(errorArray);
+        const { errorsToText } = require("../src/kola")();
+        const traductions = errorsToText(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Cant be null", "Cant be empty"],
@@ -110,8 +110,8 @@ describe("kola", () => {
           value3: [{ notGreaterThan: 100 }],
         };
 
-        const translator = require("../src/kola")();
-        const traductions = translator.translateErrors(errorArray);
+        const { errorsToText } = require("../src/kola")();
+        const traductions = errorsToText(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Not less than 0"],
@@ -133,8 +133,8 @@ describe("kola", () => {
           value9: { value10: [{ wrongType: "value2" }] },
         };
 
-        const translator = require("../src/kola")();
-        const traductions = translator.translateErrors(errorArray);
+        const { errorsToText } = require("../src/kola")();
+        const traductions = errorsToText(errorArray);
 
         assert.deepStrictEqual(traductions, {
           value1: ["Not less than 0"],
@@ -195,9 +195,9 @@ describe("kola", () => {
       testUser.car = "Two wheels and two pedals";
 
       testUser.validate();
-      const kola = require("../src/kola")();
+      const { errorsToText } = require("../src/kola")();
 
-      const testUserErrors = kola.translateErrors(testUser.errors);
+      const testUserErrors = errorsToText(testUser.errors);
 
       assert.deepStrictEqual(testUserErrors, {
         name: ["Cant be empty"],
