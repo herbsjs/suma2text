@@ -4,8 +4,8 @@ describe("kola - I18N pt-BR", () => {
   it("translate simple field", () => {
     const error = { cantBeNull: true };
 
-    const translator = require("../../src/kola")("pt-BR");
-    const traductions = translator.translate(error);
+    const kola = require("../../src/kola")();
+    const traductions = kola.toText(error, "pt-BR");
 
     assert.deepStrictEqual(traductions, "Não pode estar vazio");
   });
@@ -22,8 +22,8 @@ describe("kola - I18N pt-BR", () => {
       value9: { value10: [{ wrongType: "value2" }] },
     };
 
-    const translator = require("../../src/kola")("pt-BR");
-    const traductions = translator.translateErrors(errorArray);
+    const kola = require("../../src/kola")();
+    const traductions = kola.errorsToText(errorArray, "pt-BR");
 
     assert.deepStrictEqual(traductions, {
       value1: ["Não pode ser menor do que 0"],

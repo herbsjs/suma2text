@@ -12,8 +12,12 @@ module.exports = {
       key: "Boolean",
       translation: "Verdadeiro ou Falso",
     },
+    {
+      key: "Saldo",
+      translation: "Saldo corrente",
+    },
   ],
-  sumaCodes: [
+  codes: [
     {
       key: "cantBeNull",
       translation: "Não pode estar vazio",

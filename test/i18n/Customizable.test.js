@@ -4,11 +4,18 @@ describe("Customizable language", () => {
   it("translate simple field", () => {
     const error = { cantBeNull: true };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [],
-      sumaCodes: [{ key: "cantBeNull", translation: "testing" }],
+    const translator = require("../../src/kola")({
+      languages: [
+        {
+          name: "ts-ME",
+          definitions: {
+            types: [],
+            codes: [{ key: "cantBeNull", translation: "testing" }],
+          },
+        },
+      ],
     });
-    const traductions = translator.translate(error);
+    const traductions = translator.toText(error, "ts-ME");
 
     assert.deepStrictEqual(traductions, "testing");
   });
@@ -21,16 +28,24 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }],
     };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [],
-      sumaCodes: [
-        { key: "cantBeNull", translation: "testing" },
-        { key: "cantBeEmpty", translation: "testing2" },
-        { key: "isTooShort", translation: "testing3" },
-        { key: "isTooLong", translation: "testing4" },
+    const kola = require("../../src/kola")({
+      useDefault: "en-US",
+      languages: [
+        {
+          name: "ts-ME",
+          definitions: {
+            types: [],
+            codes: [
+              { key: "cantBeNull", translation: "testing" },
+              { key: "cantBeEmpty", translation: "testing2" },
+              { key: "isTooShort", translation: "testing3" },
+              { key: "isTooLong", translation: "testing4" },
+            ],
+          },
+        },
       ],
     });
-    const traductions = translator.translateErrors(errorArray);
+    const traductions = kola.errorsToText(errorArray, "ts-ME");
 
     assert.deepStrictEqual(traductions, {
       value1: ["testing"],
@@ -50,22 +65,30 @@ describe("Customizable language", () => {
       value7: [{ wrongType: "value2" }],
     };
 
-    const translator = require("../../src/kola")("en-US", {
-      types: [
-        { key: "Number", translation: "Digit" },
-        { key: "String", translation: "Char Array" },
-      ],
-      sumaCodes: [
-        { key: "cantBeEmpty", translation: "Wont should be empty" },
-        { key: "wrongType", translation: "The value correct is {0}" },
-        { key: "notEqualTo", translation: "should not be equal to {0}" },
+    const kola = require("../../src/kola")({
+      useDefault: "en-US",
+      languages: [
         {
-          key: "notGreaterThan",
-          translation: "should not be greater than {0}",
+          name: "en-US",
+          definitions: {
+            types: [
+              { key: "Number", translation: "Digit" },
+              { key: "String", translation: "Char Array" },
+            ],
+            codes: [
+              { key: "cantBeEmpty", translation: "Wont should be empty" },
+              { key: "wrongType", translation: "The value correct is {0}" },
+              { key: "notEqualTo", translation: "should not be equal to {0}" },
+              {
+                key: "notGreaterThan",
+                translation: "should not be greater than {0}",
+              },
+            ],
+          },
         },
       ],
     });
-    const traductions = translator.translateErrors(errorArray);
+    const traductions = kola.errorsToText(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value2: ["Wont should be empty"],
@@ -86,13 +109,21 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }, { isTooShort: true }],
     };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [],
-      sumaCodes: [],
+    const translator = require("../../src/kola")({
+      useDefault: "en-US",
+      languages: [
+        {
+          name: "ts-ME",
+          definitions: {
+            types: [],
+            codes: [],
+          },
+        },
+      ],
     });
 
     assert.throws(() => {
-      translator.translateErrors(errorArray);
+      translator.errorsToText(errorArray, "ts-ME");
     });
   });
 
@@ -105,25 +136,33 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }, { isTooShort: true }],
     };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [
-        { key: "Number", translation: "Digit" },
-        { key: "String", translation: "Char Array" },
-      ],
-      sumaCodes: [
-        { key: "cantBeNull", translation: "Wont should be null" },
-        { key: "cantBeEmpty", translation: "Wont should be empty" },
-        { key: "wrongType", translation: "The value correct is {0}" },
-        { key: "notEqualTo", translation: "should not be equal to {0}" },
-        { key: "isTooShort", translation: "wont should be too short" },
-        { key: "isTooLong", translation: "wont should be too long" },
+    const kola = require("../../src/kola")({
+      useDefault: "ts-ME",
+      languages: [
         {
-          key: "notGreaterThan",
-          translation: "should not be greater than {0}",
+          name: "ts-ME",
+          definitions: {
+            types: [
+              { key: "Number", translation: "Digit" },
+              { key: "String", translation: "Char Array" },
+            ],
+            codes: [
+              { key: "cantBeNull", translation: "Wont should be null" },
+              { key: "cantBeEmpty", translation: "Wont should be empty" },
+              { key: "wrongType", translation: "The value correct is {0}" },
+              { key: "notEqualTo", translation: "should not be equal to {0}" },
+              { key: "isTooShort", translation: "wont should be too short" },
+              { key: "isTooLong", translation: "wont should be too long" },
+              {
+                key: "notGreaterThan",
+                translation: "should not be greater than {0}",
+              },
+            ],
+          },
         },
       ],
     });
-    const traductions = translator.translateErrors(errorArray);
+    const traductions = kola.errorsToText(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["Wont should be null", "Wont should be empty"],
@@ -141,18 +180,29 @@ describe("Customizable language", () => {
       value3: [{ notGreaterThan: 100 }],
     };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [],
-      sumaCodes: [
-        { key: "notLessThan", translation: "wont should be less than {0}" },
-        { key: "notEqualTo", translation: "wont should be equal to {0}" },
+    const kola = require("../../src/kola")({
+      useDefault: "ts-ME",
+      languages: [
         {
-          key: "notGreaterThan",
-          translation: "should not be greater than {0}",
+          name: "ts-ME",
+          definitions: {
+            types: [],
+            codes: [
+              {
+                key: "notLessThan",
+                translation: "wont should be less than {0}",
+              },
+              { key: "notEqualTo", translation: "wont should be equal to {0}" },
+              {
+                key: "notGreaterThan",
+                translation: "should not be greater than {0}",
+              },
+            ],
+          },
         },
       ],
     });
-    const traductions = translator.translateErrors(errorArray);
+    const traductions = kola.errorsToText(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["wont should be less than 0"],
@@ -174,25 +224,36 @@ describe("Customizable language", () => {
       value9: { value10: [{ wrongType: "value2" }] },
     };
 
-    const translator = require("../../src/kola")("ts-ME", {
-      types: [
-        { key: "Number", translation: "Digit" },
-        { key: "String", translation: "Char Array" },
-        { key: "value2", translation: "Value like 2" },
-      ],
-      sumaCodes: [
-        { key: "wrongType", translation: "The value correct is {0}" },
-        { key: "isTooShort", translation: "wont should be too short" },
-        { key: "isTooLong", translation: "wont should be too long" },
-        { key: "notLessThan", translation: "wont should be less than {0}" },
-        { key: "notEqualTo", translation: "wont should be equal to {0}" },
+    const kola = require("../../src/kola")({
+      useDefault: "ts-ME",
+      languages: [
         {
-          key: "notGreaterThan",
-          translation: "should not be greater than {0}",
+          name: "ts-ME",
+          definitions: {
+            types: [
+              { key: "Number", translation: "Digit" },
+              { key: "String", translation: "Char Array" },
+              { key: "value2", translation: "Value like 2" },
+            ],
+            codes: [
+              { key: "wrongType", translation: "The value correct is {0}" },
+              { key: "isTooShort", translation: "wont should be too short" },
+              { key: "isTooLong", translation: "wont should be too long" },
+              {
+                key: "notLessThan",
+                translation: "wont should be less than {0}",
+              },
+              { key: "notEqualTo", translation: "wont should be equal to {0}" },
+              {
+                key: "notGreaterThan",
+                translation: "should not be greater than {0}",
+              },
+            ],
+          },
         },
       ],
     });
-    const traductions = translator.translateErrors(errorArray);
+    const traductions = kola.errorsToText(errorArray);
 
     assert.deepStrictEqual(traductions, {
       value1: ["wont should be less than 0"],

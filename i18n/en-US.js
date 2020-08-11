@@ -13,7 +13,7 @@ module.exports = {
       translation: "Boolean",
     },
   ],
-  sumaCodes: [
+  codes: [
     {
       key: "cantBeNull",
       translation: "Cant be null",
