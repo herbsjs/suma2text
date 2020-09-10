@@ -103,4 +103,4 @@ module.exports = {
       translation: "Not contains {0}",
     },
   ],
-};
+}
