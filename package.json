@@ -1,8 +1,8 @@
 {
-  "name": "kola",
+  "name": "suma2Text",
   "version": "0.0.1",
   "description": "A tool to translate suma error codes to natural language.",
-  "main": "./src/kola.js",
+  "main": "./src/suma2Text.js",
   "scripts": {
     "test": "mocha --timeout 999999 --colors --recursive ./test"
   },
@@ -20,7 +20,7 @@
     "validation",
     "error code only",
     "suma",
-    "gotu",
+    "suma2Text",
     "buchu"
   ],
   "devDependencies": {
@@ -29,7 +29,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "gotu": "^1.0.6",
+    "suma2Text": "^1.0.6",
     "mocha": "^8.1.3",
     "nyc": "^15.1.0",
     "prettier": "^2.1.1"

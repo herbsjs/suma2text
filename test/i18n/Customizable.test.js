@@ -4,7 +4,7 @@ describe("Customizable language", () => {
   it("translate simple field", () => {
     const error = { cantBeNull: true }
 
-    const translator = require("../../src/kola")({
+    const translator = require("../../src/suma2Text")({
       languages: [
         {
           name: "ts-ME",
@@ -28,7 +28,7 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }],
     }
 
-    const kola = require("../../src/kola")({
+    const suma2Text = require("../../src/suma2Text")({
       useDefault: "en-US",
       languages: [
         {
@@ -45,7 +45,7 @@ describe("Customizable language", () => {
         },
       ],
     })
-    const traductions = kola.errorsToText(errorArray, "ts-ME")
+    const traductions = suma2Text.errorsToText(errorArray, "ts-ME")
 
     assert.deepStrictEqual(traductions, {
       value1: ["testing"],
@@ -65,7 +65,7 @@ describe("Customizable language", () => {
       value7: [{ wrongType: "value2" }],
     }
 
-    const kola = require("../../src/kola")({
+    const suma2Text = require("../../src/suma2Text")({
       useDefault: "en-US",
       languages: [
         {
@@ -88,7 +88,7 @@ describe("Customizable language", () => {
         },
       ],
     })
-    const traductions = kola.errorsToText(errorArray)
+    const traductions = suma2Text.errorsToText(errorArray)
 
     assert.deepStrictEqual(traductions, {
       value2: ["Wont should be empty"],
@@ -109,7 +109,7 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }, { isTooShort: true }],
     }
 
-    const translator = require("../../src/kola")({
+    const translator = require("../../src/suma2Text")({
       useDefault: "en-US",
       languages: [
         {
@@ -136,7 +136,7 @@ describe("Customizable language", () => {
       value5: [{ isTooLong: true }, { isTooShort: true }],
     }
 
-    const kola = require("../../src/kola")({
+    const suma2Text = require("../../src/suma2Text")({
       useDefault: "ts-ME",
       languages: [
         {
@@ -162,7 +162,7 @@ describe("Customizable language", () => {
         },
       ],
     })
-    const traductions = kola.errorsToText(errorArray)
+    const traductions = suma2Text.errorsToText(errorArray)
 
     assert.deepStrictEqual(traductions, {
       value1: ["Wont should be null", "Wont should be empty"],
@@ -180,7 +180,7 @@ describe("Customizable language", () => {
       value3: [{ notGreaterThan: 100 }],
     }
 
-    const kola = require("../../src/kola")({
+    const suma2Text = require("../../src/suma2Text")({
       useDefault: "ts-ME",
       languages: [
         {
@@ -202,7 +202,7 @@ describe("Customizable language", () => {
         },
       ],
     })
-    const traductions = kola.errorsToText(errorArray)
+    const traductions = suma2Text.errorsToText(errorArray)
 
     assert.deepStrictEqual(traductions, {
       value1: ["wont should be less than 0"],
@@ -224,7 +224,7 @@ describe("Customizable language", () => {
       value9: { value10: [{ wrongType: "value2" }] },
     }
 
-    const kola = require("../../src/kola")({
+    const suma2Text = require("../../src/suma2Text")({
       useDefault: "ts-ME",
       languages: [
         {
@@ -253,7 +253,7 @@ describe("Customizable language", () => {
         },
       ],
     })
-    const traductions = kola.errorsToText(errorArray)
+    const traductions = suma2Text.errorsToText(errorArray)
 
     assert.deepStrictEqual(traductions, {
       value1: ["wont should be less than 0"],

@@ -1,11 +1,11 @@
 const assert = require("assert")
 
-describe("kola - I18N en-US", () => {
+describe("suma2Text - I18N en-US", () => {
   it("translate simple field", () => {
     const error = { cantBeNull: true }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.toText(error, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.toText(error, "en-US")
 
     assert.deepStrictEqual(traductions, "Cant be null")
   })
@@ -18,8 +18,8 @@ describe("kola - I18N en-US", () => {
       value5: [{ isTooLong: true }],
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "en-US")
 
     assert.deepStrictEqual(traductions, {
       value1: ["Cant be null"],
@@ -39,8 +39,8 @@ describe("kola - I18N en-US", () => {
       value7: [{ wrongType: "value2" }],
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "en-US")
 
     assert.deepStrictEqual(traductions, {
       value2: ["Cant be empty"],
@@ -61,8 +61,8 @@ describe("kola - I18N en-US", () => {
       value5: [{ isTooLong: true }, { isTooShort: true }],
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "en-US")
 
     assert.deepStrictEqual(traductions, {
       value1: ["Cant be null", "Cant be empty"],
@@ -80,8 +80,8 @@ describe("kola - I18N en-US", () => {
       value3: [{ notGreaterThan: 100 }],
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "en-US")
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],
@@ -103,8 +103,8 @@ describe("kola - I18N en-US", () => {
       value9: { value10: [{ wrongType: "value2" }] },
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "en-US")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "en-US")
 
     assert.deepStrictEqual(traductions, {
       value1: ["Not less than 0"],

@@ -1,11 +1,11 @@
 const assert = require("assert")
 
-describe("kola - I18N pt-BR", () => {
+describe("suma2Text - I18N pt-BR", () => {
   it("translate simple field", () => {
     const error = { cantBeNull: true }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.toText(error, "pt-BR")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.toText(error, "pt-BR")
 
     assert.deepStrictEqual(traductions, "Não pode estar vazio")
   })
@@ -22,8 +22,8 @@ describe("kola - I18N pt-BR", () => {
       value9: { value10: [{ wrongType: "value2" }] },
     }
 
-    const kola = require("../../src/kola")()
-    const traductions = kola.errorsToText(errorArray, "pt-BR")
+    const suma2Text = require("../../src/suma2Text")()
+    const traductions = suma2Text.errorsToText(errorArray, "pt-BR")
 
     assert.deepStrictEqual(traductions, {
       value1: ["Não pode ser menor do que 0"],
