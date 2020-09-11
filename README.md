@@ -1,6 +1,6 @@
  <p align='center'><img src='https://raw.githubusercontent.com/herbsjs/suma2text/master/docs/logo.png' height='220'></p>
 
-![CI Build](https://github.com/herbsjs/suma2text/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma2text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2text)
+![CI build](https://github.com/herbsjs/suma2text/workflows/CI%20build/badge.svg) [![codecov](https://codecov.io/gh/herbsjs/suma2text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2text)
 
 # suma2text
 
