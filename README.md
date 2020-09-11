@@ -1,25 +1,25 @@
- <p align='center'><img src='https://raw.githubusercontent.com/herbsjs/suma2Text/master/docs/logo.png' height='220'></p>
+ <p align='center'><img src='https://raw.githubusercontent.com/herbsjs/suma2text/master/docs/logo.png' height='220'></p>
 
-![CI Build](https://github.com/herbsjs/suma2Text/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma2Text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2Text)
+![CI Build](https://github.com/herbsjs/suma2text/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma2text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2text)
 
-# suma2Text
+# suma2text
 
-suma2Text it's a tool to parse error codes to string, you can use in all your solution.
+suma2text it's a tool to parse error codes to string, you can use in all your solution.
 
-Suma and suma2Text native, you can translate all suma error codes, one by one or all entity error array.
+Suma and suma2text native, you can translate all suma error codes, one by one or all entity error array.
 
 ### Installing
 
-    $ npm install suma2Text
+    $ npm install suma2text
 
 ### Using
 
-If your use is simple, you can just require suma2Text, and execute this configure function, by default the language will be English from the united states (ISO CODE en-US).
+If your use is simple, you can just require suma2text, and execute this configure function, by default the language will be English from the united states (ISO CODE en-US).
 
 ```javascript
-const suma2Text = require('suma2Text')()
+const suma2text = require('suma2text')()
 
-const suma2Text.toText({ notDefined: true })
+const suma2text.toText({ notDefined: true })
 /*
     Not defined
 */
@@ -28,7 +28,7 @@ const suma2Text.toText({ notDefined: true })
 You also can add a different language or customize the existing, just pass the following parameters on require function.
 
 ```javascript
-const suma2Text = require('suma2Text')({
+const suma2text = require('suma2text')({
     useDefault: 'ts-ME',
     languages: [{
             name: 'ts-ME',
@@ -60,27 +60,27 @@ const suma2Text = require('suma2Text')({
 })
 
 //fully custumized language
-const suma2Text.toText({ wrongType: String }, 'ts-ME')
+const suma2text.toText({ wrongType: String }, 'ts-ME')
 /*
    Please the value correct is Characters
 */
-const suma2Text.toText({ notGreaterThan: 10 }, 'ts-ME')
+const suma2text.toText({ notGreaterThan: 10 }, 'ts-ME')
 /*
    Will be thrown a not implemented code exception
 */
 
 //existing language, but some custumization
-const suma2Text.toText({ wrongType: String }, 'en-US')
+const suma2text.toText({ wrongType: String }, 'en-US')
 /*
    The value correct is Char Array
 */
-const suma2Text.toText({ notGreaterThan: 10 }, 'en-US')
+const suma2text.toText({ notGreaterThan: 10 }, 'en-US')
 /*
    Not greater than 10
 */
 
 ```
-But, the perfect choice is to use whit herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2Text class, validate, and just show the results in your presentation layer, let's see how.
+But, the perfect choice is to use whit herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2text class, validate, and just show the results in your presentation layer, let's see how.
 ```javascript
 const User =
     entity('User', {
@@ -94,9 +94,9 @@ user.plan.monthlyCost = true
 user.validate()
 user.errors // { name: [ {wrongType: 'String'} ], plan: { monthlyCost: [ {wrongType: 'Number'}  } }
 
-const suma2Text = require('suma2Text')()
+const suma2text = require('suma2text')()
 
-const englishUserErrors = suma2Text.errorsToText(user.errors)
+const englishUserErrors = suma2text.errorsToText(user.errors)
 /*
     {
         name: ['Wrong type, the correct type is String']
@@ -105,7 +105,7 @@ const englishUserErrors = suma2Text.errorsToText(user.errors)
         }
     }
 */
-const portugueseUserErrors = suma2Text.errorsToText(user.errors, 'pt-BR')
+const portugueseUserErrors = suma2text.errorsToText(user.errors, 'pt-BR')
 /*
     {
         name: ['Foi definido um tipo incorreto, o valor esperado era Texto']
@@ -143,15 +143,15 @@ Text Formatting:
 
 
 ### Contribute
-Come with us to make an awesome *suma2Text*.
+Come with us to make an awesome *suma2text*.
 
-Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/suma2Text/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
+Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/suma2text/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
 
-We have some conventions to contribute to the *suma2Text* project, see more information in our [CONTRIBUTING.md](CONTRIBUTING.md). So please, read this before send to us a [pull requests](https://github.com/herbsjs/suma2Text/pulls).
+We have some conventions to contribute to the *suma2text* project, see more information in our [CONTRIBUTING.md](CONTRIBUTING.md). So please, read this before send to us a [pull requests](https://github.com/herbsjs/suma2text/pulls).
 
 ### The Herb
 
-suma2Text suma2Text has been used historically to relieve congestion from upper respiratory infections and colds and for wound healing. It is very popular for treating varicose veins and memory loss.
+suma2text suma2text has been used historically to relieve congestion from upper respiratory infections and colds and for wound healing. It is very popular for treating varicose veins and memory loss.
 
 
 https://www.herbslist.net/
@@ -160,5 +160,5 @@ https://en.wikipedia.org/wiki/Centella_asiatica
 
 ### License
 
-**suma2Text** is released under the
-[MIT license](https://github.com/herbsjs/suma2Text/blob/development/LICENSE.md).
+**suma2text** is released under the
+[MIT license](https://github.com/herbsjs/suma2text/blob/development/LICENSE.md).
