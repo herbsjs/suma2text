@@ -161,4 +161,4 @@ https://en.wikipedia.org/wiki/Centella_asiatica
 ### License
 
 **suma2text** is released under the
-[MIT license](https://github.com/herbsjs/suma2text/blob/development/LICENSE.md).
+[MIT license](https://github.com/herbsjs/suma2text/blob/development/LICENSE.md)
