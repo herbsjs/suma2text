@@ -40,6 +40,6 @@ Draft pull requests are also welcome to get feedback early on, or if there is so
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Help](https://help.github.com)
 
-[pulls]: https://github.com/jhomarolo/covid-api/pulls
-[pr]: https://github.com/jhomarolo/covid-api/compare
-[fork]: https://github.com/jhomarolo/covid-api/fork
+[pulls]: https://github.com/herbsjs/suma2text/pulls
+[pr]: https://github.com/herbsjs/suma2text/compare
+[fork]: https://github.com/herbsjs/suma2text/fork
