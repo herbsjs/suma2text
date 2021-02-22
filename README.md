@@ -1,6 +1,6 @@
  <p align='center'><img src='https://raw.githubusercontent.com/herbsjs/suma2text/master/docs/logo.png' height='220'></p>
 
-![CI Build](https://github.com/herbsjs/suma2text/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma2text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2text)
+![CI build](https://github.com/herbsjs/suma2text/workflows/CI%20build/badge.svg) [![codecov](https://codecov.io/gh/herbsjs/suma2text/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma2text)
 
 # suma2text
 
@@ -147,7 +147,7 @@ Come with us to make an awesome *suma2text*.
 
 Now, if you do not have the technical knowledge and also have intended to help us, do not feel shy, [click here](https://github.com/herbsjs/suma2text/issues) to open an issue and collaborate their ideas, the contribution may be a criticism or a compliment (why not?)
 
-We have some conventions to contribute to the *suma2text* project, see more information in our [CONTRIBUTING.md](CONTRIBUTING.md). So please, read this before send to us a [pull requests](https://github.com/herbsjs/suma2text/pulls).
+If you would like to help contribute to this repository, please see [CONTRIBUTING](https://github.com/herbsjs/suma2text/blob/master/.github/CONTRIBUTING.md)
 
 ### The Herb
 
@@ -161,4 +161,4 @@ https://en.wikipedia.org/wiki/Centella_asiatica
 ### License
 
 **suma2text** is released under the
-[MIT license](https://github.com/herbsjs/suma2text/blob/development/LICENSE.md).
+[MIT license](https://github.com/herbsjs/suma2text/blob/master/LICENSE.md)
