@@ -26,19 +26,19 @@ describe("suma2Text - I18N pt-BR", () => {
     const traductions = suma2Text.errorsToText(errorArray, "pt-BR")
 
     assert.deepStrictEqual(traductions, {
-      value1: ["Não pode ser menor do que 0"],
+      value1: ["Não é menor que 0"],
       value2: {
-        value4: ["Não pode ser igual a 1"],
+        value4: ["Não é igual a 1"],
         value5: ["Está maior do que esperado", "Está menor do que esperado"],
       },
-      value3: ["Não deve ser maior que 100"],
-      value6: ["Foi definido um tipo incorreto, o valor esperado era Texto"],
+      value3: ["Não é maior que 100"],
+      value6: ["Tipo incorreto, o valor esperado era Texto"],
       value7: {
-        value8: ["Foi definido um tipo incorreto, o valor esperado era Número"],
+        value8: ["Tipo incorreto, o valor esperado era Número"],
       },
       value9: {
         value10: [
-          "Foi definido um tipo incorreto, o valor esperado era value2",
+          "Tipo incorreto, o valor esperado era value2",
         ],
       },
     })
