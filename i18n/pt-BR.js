@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       key: "wrongType",
-      translation: "Foi definido um tipo incorreto, o valor esperado era {0}",
+      translation: "Tipo incorreto, o valor esperado era {0}",
     },
     {
       key: "isTooShort",
@@ -44,23 +44,23 @@ module.exports = {
     },
     {
       key: "notGreaterThan",
-      translation: "Não deve ser maior que {0}",
+      translation: "Não é maior que {0}",
     },
     {
       key: "notGreaterThanOrEqualTo",
-      translation: "Não pode ser maior ou igual que {0}",
+      translation: "Não é maior ou igual a {0}",
     },
     {
       key: "notEqualTo",
-      translation: "Não pode ser igual a {0}",
+      translation: "Não é igual a {0}",
     },
     {
       key: "notLessThan",
-      translation: "Não pode ser menor do que {0}",
+      translation: "Não é menor que {0}",
     },
     {
       key: "notLessThanOrEqualTo",
-      translation: "Não deve ser menor ou igual a {0}",
+      translation: "Não é menor ou igual a {0}",
     },
     {
       key: "notAnInteger",
@@ -88,23 +88,23 @@ module.exports = {
     },
     {
       key: "invalidFormat",
-      translation: "Está no formato inválido",
+      translation: "Formato inválido",
     },
     {
       key: "invalidURL",
-      translation: "Foi definido com uma URL inválida",
+      translation: "URL inválida",
     },
     {
       key: "invalidEmail",
-      translation: "Foi definido um e-mail inválido",
+      translation: "E-mail inválido",
     },
     {
       key: "contains",
-      translation: "contém {0}",
+      translation: "Contém {0}",
     },
     {
       key: "notContains",
-      translation: "não contém {0}",
+      translation: "Não contém {0}",
     },
   ],
 }

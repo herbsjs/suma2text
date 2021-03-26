@@ -108,9 +108,9 @@ const englishUserErrors = suma2text.errorsToText(user.errors)
 const portugueseUserErrors = suma2text.errorsToText(user.errors, 'pt-BR')
 /*
     {
-        name: ['Foi definido um tipo incorreto, o valor esperado era Texto']
+        name: ['Tipo incorreto, o valor esperado era Texto']
         plan: {
-            monthlyCost: ['Foi definido um tipo incorreto, o valor esperado era Plan']
+            monthlyCost: ['Tipo incorreto, o valor esperado era Plan']
         }
     }
 */
