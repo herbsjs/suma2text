@@ -161,7 +161,7 @@ describe("suma2Text", () => {
 })
 describe("Gotu .error test", () => {
   it("should translate an entire .error object after validation", () => {
-    const { field, entity } = require("gotu")
+    const { field, entity } = require("@herbsjs/gotu")
     const User = entity("User", {
       name: field(String, { validation: { presence: true } }),
       email: field(String, {
@@ -206,6 +206,7 @@ describe("Gotu .error test", () => {
 
     assert.deepStrictEqual(testUserErrors, {
       name: ["Cant be empty"],
+      active: ["Cant be empty"],
       email: ["Invalid email"],
       phone: ["Is too short"],
       birthDay: ["Too late"],
