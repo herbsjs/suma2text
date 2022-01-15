@@ -130,7 +130,7 @@ Language localisation:
 - [ ] Italian
 - [ ] Korean
 - [X] Portuguese ('pt-BR')
-- [ ] Spanish
+- [X] Spanish
 - [ ] Swedish   
 - [ ] Tamil
 
