@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/herbsjs/suma2text/compare/v1.0.0...v1.1.0) (2022-01-15)
+
+
+### Bug Fixes
+
+* **languagepackage:** fix a bug in language package, that was happening when calls suma text ([f3e141a](https://github.com/herbsjs/suma2text/commit/f3e141ab9e51f900dff03a715458f294ebe166bc)), closes [#5](https://github.com/herbsjs/suma2text/issues/5)
+
+
+### Features
+
+* **es-es language:** add es-ES language ([8c95e4e](https://github.com/herbsjs/suma2text/commit/8c95e4e540ad551386721a61cfe05777c9514135))
+
 # 1.0.0 (2021-06-23)
 
 
