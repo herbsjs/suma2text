@@ -81,7 +81,7 @@ const suma2text.toText({ notGreaterThan: 10 }, 'en-US')
 */
 
 ```
-But, the perfect choice is to use whit herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2text class, validate, and just show the results in your presentation layer, let's see how.
+But, the perfect choice is to use with herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2text class, validate, and just show the results in your presentation layer, let's see how.
 ```javascript
 const User =
     entity('User', {
@@ -130,7 +130,7 @@ Language localisation:
 - [ ] Italian
 - [ ] Korean
 - [X] Portuguese ('pt-BR')
-- [ ] Spanish
+- [X] Spanish
 - [ ] Swedish   
 - [ ] Tamil
 

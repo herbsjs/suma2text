@@ -11,7 +11,7 @@ describe("LanguagePackage", () => {
     const languagePackage = require("../src/languagePackage")
 
     const customContext = languagePackage["ts-ME"]
-
+  
     assert.equal(customContext, null)
   })
 
@@ -29,5 +29,13 @@ describe("LanguagePackage", () => {
     const customContext = languagePackage["pt-BR"]
 
     assert.deepEqual(customContext, require("../i18n/pt-BR"))
+  })
+
+  it("should return es-ES", () => {
+    const languagePackage = require("../src/languagePackage")
+
+    const customContext = languagePackage["es-ES"]
+
+    assert.deepEqual(customContext, require("../i18n/es-ES"))
   })
 })
