@@ -27,6 +27,5 @@ jobs:
         env:
           CI: true
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.0.7
-      - name: Running Linter - ESLint
-        run: npm run lint
+        uses: codecov/codecov-action@v2
+
