@@ -5,7 +5,7 @@ module.exports = function (
 
   if (languages) {
     languages.map(({ name, definitions }) => {
-      if (process)
+      if (typeof process !== 'undefined')
         process.emitWarning(
           `${name}: ${textPackage[name]
             ? "will be custumized"
