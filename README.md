@@ -9,15 +9,16 @@ suma2text it's a tool to parse error codes to string, you can use in all your so
 Suma and suma2text native, you can translate all suma error codes, one by one or all entity error array.
 
 ### Installing
-
-    $ npm install suma2text
+```
+    $ npm install @herbsjs/suma2text
+```
 
 ### Using
 
 If your use is simple, you can just require suma2text, and execute this configure function, by default the language will be English from the united states (ISO CODE en-US).
 
 ```javascript
-const suma2text = require('suma2text')()
+const suma2text = require('@herbsjs/suma2text')()
 
 const suma2text.toText({ notDefined: true })
 /*
@@ -28,7 +29,7 @@ const suma2text.toText({ notDefined: true })
 You also can add a different language or customize the existing, just pass the following parameters on require function.
 
 ```javascript
-const suma2text = require('suma2text')({
+const suma2text = require('@herbsjs/suma2text')({
     useDefault: 'ts-ME',
     languages: [{
             name: 'ts-ME',
@@ -80,7 +81,7 @@ const suma2text.toText({ notGreaterThan: 10 }, 'en-US')
 */
 
 ```
-But, the perfect choice is to use whit herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2text class, validate, and just show the results in your presentation layer, let's see how.
+But, the perfect choice is to use with herbs.js, all suma codes are integrated into here, and we made for it, you can pass all your validation in a suma2text class, validate, and just show the results in your presentation layer, let's see how.
 ```javascript
 const User =
     entity('User', {
@@ -94,7 +95,7 @@ user.plan.monthlyCost = true
 user.validate()
 user.errors // { name: [ {wrongType: 'String'} ], plan: { monthlyCost: [ {wrongType: 'Number'}  } }
 
-const suma2text = require('suma2text')()
+const suma2text = require('@herbsjs/suma2text')()
 
 const englishUserErrors = suma2text.errorsToText(user.errors)
 /*
@@ -108,9 +109,9 @@ const englishUserErrors = suma2text.errorsToText(user.errors)
 const portugueseUserErrors = suma2text.errorsToText(user.errors, 'pt-BR')
 /*
     {
-        name: ['Foi definido um tipo incorreto, o valor esperado era Texto']
+        name: ['Tipo incorreto, o valor esperado era Texto']
         plan: {
-            monthlyCost: ['Foi definido um tipo incorreto, o valor esperado era Plan']
+            monthlyCost: ['Tipo incorreto, o valor esperado era Plan']
         }
     }
 */
@@ -129,7 +130,7 @@ Language localisation:
 - [ ] Italian
 - [ ] Korean
 - [X] Portuguese ('pt-BR')
-- [ ] Spanish
+- [X] Spanish
 - [ ] Swedish   
 - [ ] Tamil
 
