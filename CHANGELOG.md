@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/herbsjs/suma2text/compare/v1.1.1...v1.1.2) (2022-02-15)
+
+
+### Bug Fixes
+
+* **suma2text:** fixed process null verification, to make lib useble in browsers ([b56bc39](https://github.com/herbsjs/suma2text/commit/b56bc3988a02cc450a23a27cfd3fa1bea22ba56a))
+
 ## [1.1.1](https://github.com/herbsjs/suma2text/compare/v1.1.0...v1.1.1) (2022-02-15)
 
 
