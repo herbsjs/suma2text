@@ -5,13 +5,13 @@ module.exports = function (
 
   if (languages) {
     languages.map(({ name, definitions }) => {
-      process.emitWarning(
-        `${name}: ${
-          textPackage[name]
+      if (process) 
+        process.emitWarning(
+          `${name}: ${textPackage[name]
             ? "will be custumized"
             : "it's not implemented, why do you wont make a pull request?"
-        }`
-      )
+          }`
+        )
 
       const newLanguage = textPackage[name]
         ? JSON.parse(JSON.stringify(textPackage[name]))
