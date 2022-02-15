@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/herbsjs/suma2text/compare/v1.1.0...v1.1.1) (2022-02-15)
+
+
+### Bug Fixes
+
+* **suma2text.js:** adding an `if` to check if process exists to emit a warning ([e51fb5c](https://github.com/herbsjs/suma2text/commit/e51fb5cbe1dbea47b2a0f86c8caf5b00068db71e)), closes [#28](https://github.com/herbsjs/suma2text/issues/28)
+
 # [1.1.0](https://github.com/herbsjs/suma2text/compare/v1.0.0...v1.1.0) (2022-01-15)
 
 
