@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/herbsjs/suma2text/compare/v1.1.2...v1.1.3) (2022-04-22)
+
+
+### Bug Fixes
+
+* 🐛 update semantic release version ([1dd612d](https://github.com/herbsjs/suma2text/commit/1dd612db8c5cf2bf18da59d8aaef2adc63186940))
+
 ## [1.1.2](https://github.com/herbsjs/suma2text/compare/v1.1.1...v1.1.2) (2022-02-15)
 
 
