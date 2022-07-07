@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/herbsjs/suma2text/compare/v1.1.3...v1.1.4) (2022-07-07)
+
+
+### Bug Fixes
+
+* **dependencies:** update dependencies and add gotu to peerdependency ([5b07a1d](https://github.com/herbsjs/suma2text/commit/5b07a1d27b130f7ebd3885ef6252427654836fbf))
+
 ## [1.1.3](https://github.com/herbsjs/suma2text/compare/v1.1.2...v1.1.3) (2022-04-22)
 
 
